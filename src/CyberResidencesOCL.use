@@ -86,7 +86,10 @@ attributes
   label : String
 end    
 
-class Rent
+associationclass Rent
+between
+    Bedroom[1..*] rentedBedrooms
+    Tenant[0..1] tenant
 attributes
     discount : Real -- @derived
     rate : Real -- @derived
@@ -101,6 +104,26 @@ end
 composition HasDiscounts between
   Rent[1] rent
   Discount[*] discounts
+end
+
+association IsInBedroom between
+  Bathrooms[0..3] bathrooms
+  Bedroom[0..1] bedroom
+end
+
+association IsOccupiedBy between
+  Bedroom[1] occupiedRoom
+  Resident[*] occupants
+end
+
+association IsMarriedWith between
+  Resident[0..1] consort
+  Resident[0..1]
+end
+
+association IsTutoredBy between
+  Resident[0..2] tutors
+  Resident[*] tutored
 end
 
 -- TODO
