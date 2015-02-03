@@ -56,7 +56,7 @@ end
 class Bedroom < Room
 attributes
     nbOfSingleBeds : Integer
-    nbOfDoubleBds : Integer
+    nbOfDoubleBeds : Integer
     rate : Real
     isNonSmoking : Boolean
     nbOfUnits : Integer -- @derived
@@ -209,33 +209,35 @@ context Tenant inv adultTenant:
 
 
 -------------------------------------------------------------------------------
---                                 atLeastABed
+--DONE                                atLeastABed
 -------------------------------------------------------------------------------
 -- At least one bed for useful bedrooms.
 -- Easy. Use implies.
 
--- context Bedroom inv atLeastABed:
+context Bedroom inv atLeastABed:
+    not self.isOutOfOrder implies ((self.nbOfSingleBeds+self.nbOfDoubleBeds)>=1)
     -- Bedrooms that are not out of order must have at least one bed.
 
 
 -------------------------------------------------------------------------------
---                               atLeastOneAdult
+--                           atLeastOneAdult
 -------------------------------------------------------------------------------
 -- At least one adult per room.
 -- Easy. Use 'implies'
 
--- context Bedroom inv atLeastOneAdult:
+--context Bedroom inv atLeastOneAdult:
     -- At least one adult must be presented in all occupied rooms.
 
 
 -------------------------------------------------------------------------------
---                               childNonSmoking
+--DONE                               childNonSmoking
 -------------------------------------------------------------------------------
 -- Non smoking child.
 -- Easy
 
 
--- context Resident inv childNonSmoking:
+context Resident inv childNonSmoking:
+    self.age < 18 implies not self.isSmoker
     -- Children are always declared as non smoker.
 
 
@@ -290,7 +292,8 @@ context Tenant inv adultTenant:
 -- Derivation of the attribute floor.
 -- Easy
 
--- context Room inv deriveFloor:
+context Room inv deriveFloor:
+    self.floor = self.number/100
     -- The floor number correspond to the first digits of the room
     -- number, where the last two digits are removed. For instance the
     -- room 634 is at the floor 6.
