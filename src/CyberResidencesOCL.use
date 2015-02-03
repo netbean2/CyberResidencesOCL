@@ -401,25 +401,24 @@ context Residence inv floorOrder:
 -- The maximum floor is at higher or at the same level that the
 -- minimum floor of the residence.
 
-
 -------------------------------------------------------------------------------
---                                 labelUnique
+--TOCHECK labelUnique
 -------------------------------------------------------------------------------
 -- Uniqueness of labels with respect to rents.
 -- Easy. Use 'unique'
-
--- context Rent inv labelUnique:
-    -- All discounts associated to a rent have distinct labels.
+--context Rent inv labelUnique:
+--    self.discounts->allInstances().unique(label)
+-- All discounts associated to a rent have distinct labels.
 
 
 -------------------------------------------------------------------------------
---                           marriageAntiReflexivity
+--TOCKECK marriageAntiReflexivity
 -------------------------------------------------------------------------------
 -- Anti-reflexivity of marriage relationship.
 -- Easy
-
--- context Resident inv marriageAntiReflexivity:
-    -- A resident cannot mary with himself or herself.
+context Resident inv marriageAntiReflexivity:
+    self.consort->notEmpty() implies self.consort<>self
+-- A resident cannot mary with himself or herself.
 
 
 -------------------------------------------------------------------------------
