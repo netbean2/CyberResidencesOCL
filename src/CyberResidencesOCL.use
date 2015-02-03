@@ -53,6 +53,46 @@ attributes
     isOnTheLanding : Boolean
 end
 
+class Bedroom < Room
+attributes
+    nbOfSingleBeds : Integer
+    nbOfDoubleBds : Integer
+    rate : Real
+    isNonSmoking : boolean
+    nbOfUnits : Integer -- @derived
+end
+
+
+class Person
+attributes
+  name : String
+  age : Integer
+  gender : Gender
+end
+
+class Resident < Person
+attributes
+  isSmoker : boolean
+end
+
+class Tenant < Resident
+attributes
+    paidRate : Real -- @derived
+end
+
+class Discount
+attributes
+  percentage : Integer
+  label : String
+end    
+
+class Rent
+attributes
+    discount : Real -- @derived
+    rate : Real -- @derived
+end
+
+
 -- TODO
 
 -- For association classes use the following syntax
