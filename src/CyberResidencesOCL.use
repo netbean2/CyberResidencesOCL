@@ -433,7 +433,7 @@ context Resident inv marriageAntiReflexivity:
 
 
 -------------------------------------------------------------------------------
---TO CHECK                               marriageSymmetry
+--TOCHECK                               marriageSymmetry
 -------------------------------------------------------------------------------
 -- Symmetry of marriage relationship.
 -- Easy
