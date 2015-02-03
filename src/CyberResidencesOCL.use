@@ -322,15 +322,16 @@ context Bathroom inv deriveIsOnTheLanding:
 
 
 -------------------------------------------------------------------------------
---                               deriveNbOfUnits
+-- deriveNbOfUnits
 -------------------------------------------------------------------------------
 -- Derivation of nbOfUnits attribute.
 -- Easy
+context Bedroom inv deriveNbOfUnits:
+    self.nbOfUnits = self.nbOfSingleBeds+2*nbOfDoubleBeds
+-- The number of units of a bedroom is the maximum number of
+-- people that can fit within the bedroom assuming that all places
+-- in all beds are full.
 
--- context Bedroom inv deriveNbOfUnits:
-    -- The number of units of a bedroom is the maximum number of
-    -- people that can fit within the bedroom assuming that all places
-    -- in all beds are full.
 
 
 -------------------------------------------------------------------------------
