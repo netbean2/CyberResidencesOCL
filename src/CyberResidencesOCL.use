@@ -32,10 +32,10 @@ operations
     bedrooms() : Set(Bedroom) =
         rooms->select(oclIsKindOf(Bedroom))->oclAsType(Set(Bedroom))
     -- Set of useful bedrooms.
-    usefulBedrooms() : Set(Bedroom)
+    usefulBedrooms() : Set(Bedroom) =
         bedrooms()->select(not isOutOfOrder)
     -- Set of residence bathrooms
-    bathrooms() : Set(Bathroom)
+    bathrooms() : Set(Bathroom) =
         rooms->select(oclIsKindOf(Bathroom))->oclAsType(Set(Bathroom))
 end
 
@@ -58,7 +58,7 @@ attributes
     nbOfSingleBeds : Integer
     nbOfDoubleBds : Integer
     rate : Real
-    isNonSmoking : boolean
+    isNonSmoking : Boolean
     nbOfUnits : Integer -- @derived
 end
 
@@ -72,7 +72,7 @@ end
 
 class Resident < Person
 attributes
-  isSmoker : boolean
+  isSmoker : Boolean
 end
 
 class Tenant < Resident
@@ -88,8 +88,8 @@ end
 
 associationclass Rent
 between
-    Bedroom[1..*] rentedBedrooms
-    Tenant[0..1] tenant
+    Bedroom[1..*] role rentedBedrooms
+    Tenant[0..1] role tenant
 attributes
     discount : Real -- @derived
     rate : Real -- @derived
@@ -97,33 +97,33 @@ end
 
 
 composition ContainsRooms between
-  Residence[1] residence
-  Room[*] rooms
+  Residence[1] role residence
+  Room[*] role rooms
 end
 
 composition HasDiscounts between
-  Rent[1] rent
-  Discount[*] discounts
+  Rent[1] role rent
+  Discount[*] role discounts
 end
 
 association IsInBedroom between
-  Bathrooms[0..3] bathrooms
-  Bedroom[0..1] bedroom
+  Bathroom[0..3] role bathrooms
+  Bedroom[0..1] role bedroom
 end
 
 association IsOccupiedBy between
-  Bedroom[1] occupiedRoom
-  Resident[*] occupants
+  Bedroom[1] role occupiedRoom
+  Resident[*] role occupants
 end
 
 association IsMarriedWith between
-  Resident[0..1] consort
+  Resident[0..1] role consort
   Resident[0..1]
 end
 
 association IsTutoredBy between
-  Resident[0..2] tutors
-  Resident[*] tutored
+  Resident[0..2] role tutors
+  Resident[*] role tutored
 end
 
 -- TODO
