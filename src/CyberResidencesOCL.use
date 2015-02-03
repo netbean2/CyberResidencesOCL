@@ -322,7 +322,7 @@ context Bathroom inv deriveIsOnTheLanding:
 
 
 -------------------------------------------------------------------------------
--- deriveNbOfUnits
+--DONE deriveNbOfUnits
 -------------------------------------------------------------------------------
 -- Derivation of nbOfUnits attribute.
 -- Easy
@@ -349,24 +349,24 @@ context Bedroom inv deriveNbOfUnits:
 
 
 -------------------------------------------------------------------------------
---                                  deriveRate
+--TOCHECK deriveRate
 -------------------------------------------------------------------------------
 -- Derivation of the attribute rate.
 -- Easy
-
--- context Rent inv deriveRate:
-    -- The rate of a rent corresponds to the regular rate for the room
-    -- minus the discount.
+--context Rent inv deriveRate:
+--    self.rate = self.rentedBedRooms.rate-(self.discount/100)*self.rentedBedRooms.rate
+-- The rate of a rent corresponds to the regular rate for the room
+-- minus the discount.
 
 
 -------------------------------------------------------------------------------
---                               domainPercentage
+-- domainPercentage
 -------------------------------------------------------------------------------
 -- Domain of percentage attribute.
 -- Easy
-
--- context Discount inv domainPercentage:
-    -- The percentage is a value between 1 and 100.
+context Discount inv domainPercentage:
+    self.percentage<=100 and self.percentage>=1
+-- The percentage is a value between 1 and 100.
 
 
 -------------------------------------------------------------------------------
