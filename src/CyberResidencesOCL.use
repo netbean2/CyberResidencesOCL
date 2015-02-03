@@ -203,9 +203,11 @@ context Tenant inv adultTenant:
 -- Invariant about all bathrooms for 'prestige' residence.
 -- Medium. use 'implies'.
 
--- context Residence inv allPrestigeBathrooms:
+context Residence inv allPrestigeBathrooms:
     -- Residences of category prestige have in each bedroom at least
     -- the same number of bathroom that the number of beds.
+    self.category=Category::prestige implies self.bedrooms()->forAll(b | (b.nbOfSingleBeds+b.nbOfDoubleBeds)=b.bathrooms->size())
+
 
 
 -------------------------------------------------------------------------------
