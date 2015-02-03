@@ -163,18 +163,26 @@ constraints
 
 
 -------------------------------------------------------------------------------
---                                 adultMarried
+--DONE                                 adultMarried
 -------------------------------------------------------------------------------
 -- Only adult married.
 -- Easy. Use 'implies'
 
---context Resident inv adultMarried:
+--Test
+--!create r:Resident
+--!create r2:Resident
+--!set r.age=18
+--!set r.age:=18
+--!insert (r,r2) into IsMarriedWith
+--check
 
+context Resident inv adultMarried:
+    self.consort->notEmpty() implies self.age >= 18
     -- To be registered as married, resident must be adult.
 
 
 -------------------------------------------------------------------------------
---                                 adultTenant
+--DONE                                adultTenant
 -------------------------------------------------------------------------------
 -- Tenants are adults.
 -- Easy
