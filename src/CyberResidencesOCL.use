@@ -93,6 +93,16 @@ attributes
 end
 
 
+composition ContainsRooms between
+  Residence[1] residence
+  Room[*] rooms
+end
+
+composition HasDiscounts between
+  Rent[1] rent
+  Discount[*] discounts
+end
+
 -- TODO
 
 -- For association classes use the following syntax
