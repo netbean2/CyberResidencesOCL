@@ -222,13 +222,14 @@ context Bedroom inv atLeastABed:
 
 
 -------------------------------------------------------------------------------
---                           atLeastOneAdult
+--DONE                           atLeastOneAdult
 -------------------------------------------------------------------------------
 -- At least one adult per room.
 -- Easy. Use 'implies'
 
---context Bedroom inv atLeastOneAdult:
+context Bedroom inv atLeastOneAdult:
     -- At least one adult must be presented in all occupied rooms.
+    self.occupants->size() <> 0 implies self.occupants->select(age>=18)->notEmpty()
 
 
 -------------------------------------------------------------------------------
