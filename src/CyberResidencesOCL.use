@@ -381,14 +381,14 @@ context Bedroom inv enoughBathroomsInPrestige:
 
 
 -------------------------------------------------------------------------------
---                            floorBetweenMinAndMax
+--DONE floorBetweenMinAndMax
 -------------------------------------------------------------------------------
 -- Floor between minimum and maximum floors.
 -- Easy
-
--- context Room inv floorBetweenMinAndMax:
-    -- The floor of a room is between the minium and maximum floor of
-    -- the residence.
+context Room inv floorBetweenMinAndMax:
+    self.floor<=self.residence.floorMax and self.floor>=self.residence.floorMin
+-- The floor of a room is between the minium and maximum floor of
+-- the residence.
 
 
 -------------------------------------------------------------------------------
