@@ -168,7 +168,8 @@ constraints
 -- Only adult married.
 -- Easy. Use 'implies'
 
--- context Resident inv adultMarried:
+--context Resident inv adultMarried:
+
     -- To be registered as married, resident must be adult.
 
 
@@ -178,8 +179,14 @@ constraints
 -- Tenants are adults.
 -- Easy
 
--- context Tenant inv adultTenant:
-    -- The minimal age to rent a bedroom is 18 years old.
+--To test 
+--!create t:Tenant
+--!set t.age:=1
+--check
+
+-- The minimal age to rent a bedroom is 18 years old.
+context Tenant inv adultTenant:
+    self.age >= 18
 
 
 -------------------------------------------------------------------------------
