@@ -392,14 +392,14 @@ context Room inv floorBetweenMinAndMax:
 
 
 -------------------------------------------------------------------------------
---                                  floorOrder
+--DONE floorOrder
 -------------------------------------------------------------------------------
 -- Order between floorMin and floorMax attributes.
 -- Easy
-
--- context Residence inv floorOrder:
-    -- The maximum floor is at higher or at the same level that the
-    -- minimum floor of the residence.
+context Residence inv floorOrder:
+    self.floorMax>=self.floorMin
+-- The maximum floor is at higher or at the same level that the
+-- minimum floor of the residence.
 
 
 -------------------------------------------------------------------------------
