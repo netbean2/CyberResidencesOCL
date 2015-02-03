@@ -589,14 +589,15 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
---                                  tutorAdult
+--DONE                                  tutorAdult
 -------------------------------------------------------------------------------
 -- Tutors are adults.
 -- Easy
 
--- context Resident inv tutorAdult:
+context Resident inv tutorAdult:
     -- A resident can not be the tutor of another resident if he or
     -- she is not an adult.
+    self.tutors->notEmpty() implies self.age < 18
 
 
 -------------------------------------------------------------------------------
