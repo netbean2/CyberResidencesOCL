@@ -482,8 +482,9 @@ context Room inv deriveFloor:
 -- No tutor for adults.
 -- Easy
 
--- context Resident inv noTutorForAdults:
+context Resident inv noTutorForAdults:
     -- Adults never have tutor.
+    self.age>=18 implies tutors->isEmpty()
 
 
 -------------------------------------------------------------------------------
@@ -492,7 +493,7 @@ context Room inv deriveFloor:
 -- No rental of Out Of Order bedrooms.
 -- Easy
 
--- context Bedroom inv oooBedroomsNotRented:
+--context Bedroom inv oooBedroomsNotRented:
     -- Bedrooms that are out of order cannot be rented.
 
 
@@ -558,7 +559,7 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
---                             smokingPremiumPolicy
+--DONE                             smokingPremiumPolicy
 -------------------------------------------------------------------------------
 -- Smoking policy for premium residences.
 -- Not easy
