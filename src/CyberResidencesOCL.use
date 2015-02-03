@@ -569,13 +569,14 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
---                            smokingPrestigePolicy
+--DONE                            smokingPrestigePolicy
 -------------------------------------------------------------------------------
 -- No smoking is prestige.
 -- Easy
 
--- context Bedroom inv smokingPrestigePolicy:
+context Bedroom inv smokingPrestigePolicy:
     -- There are no smoking rooms at all in residence of prestige.
+    self.residence.category=Category::prestige implies self.isNonSmoking
 
 
 -------------------------------------------------------------------------------
