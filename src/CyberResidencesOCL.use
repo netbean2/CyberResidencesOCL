@@ -300,14 +300,14 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
---                             deriveIsOnTheLanding
+--DONE deriveIsOnTheLanding
 -------------------------------------------------------------------------------
 -- Derivation of isOnTheLanding attribute.
 -- Easy
-
--- context Bathroom inv deriveIsOnTheLanding:
-    -- A bathroom is said to be on the landing if it is not in a
-    -- bedroom.
+context Bathroom inv deriveIsOnTheLanding:
+    not self.isOnTheLanding implies self.bedroom->isEmpty()
+-- A bathroom is said to be on the landing if it is not in a
+-- bedroom.
 
 
 -------------------------------------------------------------------------------
@@ -433,14 +433,15 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
---                               marriageSymmetry
+--TO CHECK                               marriageSymmetry
 -------------------------------------------------------------------------------
 -- Symmetry of marriage relationship.
 -- Easy
 
--- context Resident inv marriageSymmetry:
+context Resident inv marriageSymmetry:
     -- If a resident is declared to be the consort of another
     -- resident, then the opposite is true as well.
+    self.consort->notEmpty() implies self.consort.consort=self
 
 
 -------------------------------------------------------------------------------
