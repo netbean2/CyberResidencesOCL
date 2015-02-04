@@ -593,13 +593,14 @@ context Bedroom inv smokingPrestigePolicy:
 
 
 -------------------------------------------------------------------------------
---                              tenantInRentedRoom
+--DONE                              tenantInRentedRoom
 -------------------------------------------------------------------------------
 -- Room occupied by the tenant.
 -- Medium. 
 
--- context Tenant inv tenantInRentedRoom:
+context Tenant inv tenantInRentedRoom:
     -- A tenant occupies one of the bedroom that he or she has rented.
+    self.rentedBedrooms->exists(rb|rb.occupants->exists(oc|oc=self))
 
 
 -------------------------------------------------------------------------------
