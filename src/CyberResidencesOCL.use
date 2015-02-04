@@ -462,7 +462,7 @@ context Resident inv marriageSymmetry:
 
 
 -------------------------------------------------------------------------------
---                            noEmptyRentedBedrooms
+--DONE                            noEmptyRentedBedrooms
 -------------------------------------------------------------------------------
 -- Rented bedrooms not empty.
 -- Easy. Use 'implies'
@@ -472,7 +472,7 @@ context Bedroom inv noEmptyRentedBedrooms:
     self.tenant <> null implies self.occupants->notEmpty()
 
 -------------------------------------------------------------------------------
---                                  noSquaters
+--DONE                                  noSquaters
 -------------------------------------------------------------------------------
 -- Nobody in rooms not rented.
 -- Easy. Use 'implies'
@@ -484,7 +484,7 @@ context Bedroom inv noSquaters:
 
 
 -------------------------------------------------------------------------------
---                               noTutorForAdults
+--DONE                               noTutorForAdults
 -------------------------------------------------------------------------------
 -- No tutor for adults.
 -- Easy
@@ -495,13 +495,14 @@ context Resident inv noTutorForAdults:
 
 
 -------------------------------------------------------------------------------
---                             oooBedroomsNotRented
+--DONE                             oooBedroomsNotRented
 -------------------------------------------------------------------------------
 -- No rental of Out Of Order bedrooms.
 -- Easy
 
---context Bedroom inv oooBedroomsNotRented:
+context Bedroom inv oooBedroomsNotRented:
     -- Bedrooms that are out of order cannot be rented.
+    self.isOutOfOrder implies self.tenant = null
 
 
 -------------------------------------------------------------------------------
