@@ -244,7 +244,7 @@ context Resident inv childNonSmoking:
 
 
 -------------------------------------------------------------------------------
---                                 childTutored
+--DONE                                 childTutored
 -------------------------------------------------------------------------------
 -- Child tutored.
 -- Medium
@@ -522,14 +522,14 @@ context Bathroom inv oooIfPrestige:
 
 
 -------------------------------------------------------------------------------
---                              rentInOneResidence
+--DONE                              rentInOneResidence
 -------------------------------------------------------------------------------
 -- Medium. Should be rather short.
 -- <Enter note text here>
 
--- context Tenant inv rentInOneResidence:
+context Tenant inv rentInOneResidence:
     -- For a given tenant, all rented bedrooms are in the same
-    -- residence.
+    self.rentedBedrooms->forAll(b | self.rentedBedrooms->forAll(b2 | b.residence=b2.residence))
 
 
 -------------------------------------------------------------------------------
