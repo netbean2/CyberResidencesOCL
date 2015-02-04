@@ -533,15 +533,16 @@ context Tenant inv rentInOneResidence:
 
 
 -------------------------------------------------------------------------------
---                             sameNumberIfPrivate
+--DONE                             sameNumberIfPrivate
 -------------------------------------------------------------------------------
 -- Same number if private.
 -- Easy. Use 'implies'.
 
--- context Bathroom inv sameNumberIfPrivate:
+context Bathroom inv sameNumberIfPrivate:
     -- All bathrooms that are not on the landing, that is that are
     -- private to a bedroom, have the same number of room as this
     -- bedroom.
+    not self.isOnTheLanding implies self.bedroom.number=self.number
 
 
 -------------------------------------------------------------------------------
