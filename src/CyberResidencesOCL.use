@@ -282,14 +282,15 @@ context Rent inv cumulatedDiscounts:
 
 
 -------------------------------------------------------------------------------
---                                deriveDiscount
+--TOCKECK                                deriveDiscount
 -------------------------------------------------------------------------------
 -- Derivation of the attribute discount.
 -- Easy
 
--- context Rent inv deriveDiscount:
+context Rent inv deriveDiscount:
     -- The discount for a rent, is the rate of the bedroom multiplied
     -- by the sum of percentages of all discounts.
+    self.discount=self.rentedBedrooms.rate*self.discounts.percentage->sum()
 
 -------------------------------------------------------------------------------
 --DONE                                 deriveFloor
@@ -324,7 +325,6 @@ context Bathroom inv deriveIsOnTheLanding:
 -- context Residence inv deriveMaxNbOfFreeUnits:
     -- The maximum number of free units is equal to the maximum number
     -- of places in beds of all rooms of the residence.
-    -- self.maxNbOfFreeUnits = 
 
 -------------------------------------------------------------------------------
 --DONE deriveNbOfUnits
