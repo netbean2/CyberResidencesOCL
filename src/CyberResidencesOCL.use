@@ -477,9 +477,10 @@ context Bedroom inv noEmptyRentedBedrooms:
 -- Nobody in rooms not rented.
 -- Easy. Use 'implies'
 
--- context Bedroom inv noSquaters:
+context Bedroom inv noSquaters:
     -- Occupants must be exclusively in rooms that are rented by
     -- somebody.
+    self.occupants->notEmpty() implies self.tenant <> null 
 
 
 -------------------------------------------------------------------------------
