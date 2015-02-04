@@ -291,9 +291,8 @@ context Rent inv cumulatedDiscounts:
     -- The discount for a rent, is the rate of the bedroom multiplied
     -- by the sum of percentages of all discounts.
 
-
 -------------------------------------------------------------------------------
---                                 deriveFloor
+--DONE                                 deriveFloor
 -------------------------------------------------------------------------------
 -- Derivation of the attribute floor.
 -- Easy
@@ -325,7 +324,7 @@ context Bathroom inv deriveIsOnTheLanding:
 -- context Residence inv deriveMaxNbOfFreeUnits:
     -- The maximum number of free units is equal to the maximum number
     -- of places in beds of all rooms of the residence.
-
+    -- self.maxNbOfFreeUnits = 
 
 -------------------------------------------------------------------------------
 --DONE deriveNbOfUnits
@@ -468,9 +467,9 @@ context Resident inv marriageSymmetry:
 -- Rented bedrooms not empty.
 -- Easy. Use 'implies'
 
--- context Bedroom inv noEmptyRentedBedrooms:
+context Bedroom inv noEmptyRentedBedrooms:
     -- All rented bedrooms are occupied by at least one occupant.
-
+    self.tenant <> null implies self.occupants->notEmpty()
 
 -------------------------------------------------------------------------------
 --                                  noSquaters
