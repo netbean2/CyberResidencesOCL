@@ -511,11 +511,14 @@ context Bedroom inv oooBedroomsNotRented:
 -- Out of order bathroom implications if prestige. 
 -- Medium. Use 'implies'
 
--- context Bathroom inv oooIfPrestige:
+context Bathroom inv oooIfPrestige:
     -- In prestige residences, it is not acceptable to rent bedrooms
     -- with bathrooms that are out of order. So if a bathrom is marked
     -- as out of order, the corresponding bedroom is also marked as
     -- out of order.
+    self.isOutOfOrder and self.residence.category=Category::prestige
+    implies
+    self.bedroom.isOutOfOrder
 
 
 -------------------------------------------------------------------------------
