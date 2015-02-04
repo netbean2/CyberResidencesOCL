@@ -146,11 +146,10 @@ constraints
 -- Conditions for granting a discount "All Bathrooms Out Of Order" (ABOOO).
 -- Note Easy. Use 'one'. Should world with 'xxxPercentage'
 
--- context Rent inv aboooConditions:
+--context Rent inv aboooConditions:
     -- A discount is given for bedrooms that have all bathrooms out of
     -- order. The label of this type of discount is 'BROOO50'. This
     -- rule does not apply in economy residences.
-
 
 -------------------------------------------------------------------------------
 --                               aboooPercentage
@@ -250,10 +249,13 @@ context Resident inv childNonSmoking:
 -- Child tutored.
 -- Medium
 
--- context Resident inv childTutored:
+context Resident inv childTutored:
     -- Resident that are less than 18 years old must have at least one
     -- tutor, apart in prestige residences where this rule does not
     -- apply.
+    self.age<18 and self.occupiedRoom.residence.category<>Category::prestige 
+    implies
+    self.tutors->notEmpty()
 
 
 -------------------------------------------------------------------------------
