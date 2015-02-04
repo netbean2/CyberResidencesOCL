@@ -259,7 +259,7 @@ context Resident inv childTutored:
 
 
 -------------------------------------------------------------------------------
---                              cumulatedDiscounts
+--TOCKECK                              cumulatedDiscounts
 -------------------------------------------------------------------------------
 -- Limit of cumulated discounts.
 -- Easy. Use 'sum'
