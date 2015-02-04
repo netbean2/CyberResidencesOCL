@@ -506,7 +506,7 @@ context Bedroom inv oooBedroomsNotRented:
 
 
 -------------------------------------------------------------------------------
---                                oooIfPrestige
+--DONE                                oooIfPrestige
 -------------------------------------------------------------------------------
 -- Out of order bathroom implications if prestige. 
 -- Medium. Use 'implies'
