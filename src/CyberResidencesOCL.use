@@ -146,7 +146,12 @@ constraints
 -- Conditions for granting a discount "All Bathrooms Out Of Order" (ABOOO).
 -- Note Easy. Use 'one'. Should world with 'xxxPercentage'
 
---context Rent inv aboooConditions:
+context Rent inv aboooConditions:
+    --select all bathrooms that are out of order check that the number of bathroom out of order = the number total number of bathroom
+    --if true it implies that it exist a discount with the right label
+    self.rentedBedrooms.bathrooms.select(br | br.isOutOfOrder)->size() = self.rentedBedrooms.bathrooms->size()
+    implies
+    self.discounts.exists(d | d.label = 'BROOO50')
     -- A discount is given for bedrooms that have all bathrooms out of
     -- order. The label of this type of discount is 'BROOO50'. This
     -- rule does not apply in economy residences.
