@@ -358,8 +358,8 @@ context Bedroom inv deriveNbOfUnits:
 -------------------------------------------------------------------------------
 -- Derivation of the attribute rate.
 -- Easy
---context Rent inv deriveRate:
---    self.rate = self.rentedBedRooms.rate-(self.discount/100)*self.rentedBedRooms.rate
+context Rent inv deriveRate:
+   self.rate = self.rentedBedrooms.rate-(self.discount/100)*self.rentedBedrooms.rate
 -- The rate of a rent corresponds to the regular rate for the room
 -- minus the discount.
 
@@ -411,8 +411,8 @@ context Residence inv floorOrder:
 -------------------------------------------------------------------------------
 -- Uniqueness of labels with respect to rents.
 -- Easy. Use 'unique'
---context Rent inv labelUnique:
---    self.discounts->allInstances().unique(label)
+context Rent inv labelUnique:
+    self.discounts->isUnique(label)
 -- All discounts associated to a rent have distinct labels.
 
 
