@@ -390,7 +390,7 @@ context Room inv floorBetweenMinAndMax:
 
 
 -------------------------------------------------------------------------------
---DONE floorOrder
+--DONE TEST-OK-KO floorOrder
 -------------------------------------------------------------------------------
 -- Order between floorMin and floorMax attributes.
 -- Easy

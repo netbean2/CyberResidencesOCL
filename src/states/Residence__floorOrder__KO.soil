@@ -5,3 +5,7 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+!create r:Residence
+!set r.floorMin:=18
+!set r.floorMax:=2
+check
