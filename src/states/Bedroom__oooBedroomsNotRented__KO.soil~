@@ -1,14 +1,7 @@
--- @assert Bedroom__oooBedroomsNotRented OK
+-- @assert Bedroom__oooBedroomsNotRented KO
 
 -- context self : Bedroom inv oooBedroomsNotRented :
 -- No rental of Out Of Order bedrooms.
 
 -- open -q <BASE>.soil
 -- here some mutation code
-
-!create be:Bedroom
-!create t:tenant
-!set be.isOutOfOrder:=false
-!set be.tenant:=t
-
-check

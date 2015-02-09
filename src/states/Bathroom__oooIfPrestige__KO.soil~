@@ -1,4 +1,4 @@
--- @assert Bathroom__oooIfPrestige OK
+-- @assert Bathroom__oooIfPrestige KO
 
 -- context self : Bathroom inv oooIfPrestige :
 -- Out of order bathroom implications if prestige. 
@@ -14,3 +14,4 @@
 !set ba.bedroom:=be
 
 check
+

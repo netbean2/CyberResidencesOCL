@@ -1,4 +1,4 @@
--- @assert Bedroom__atLeastOneAdult OK
+-- @assert Bedroom__atLeastOneAdult KO
 
 -- context self : Bedroom inv atLeastOneAdult :
 -- At least one adult per room.
@@ -6,13 +6,17 @@
 -- open -q <BASE>.soil
 -- here some mutation code
 
+context Bedroom inv atLeastOneAdult:
+    -- At least one adult must be presented in all occupied rooms.
+    self.occupants->size() <> 0 implies self.occupants->select(age>=18)->notEmpty()
+    
 !create be: Bedroom
 !create be1: Bedroom
 !create r: Resident
 !create r1: Resident
 
 !set r.age:=19
-!set r1.age:=20
+!set r1.age:=10
 
 !set r.occupiedRoom:=be
 !set r1.occupiedRoom:=be1

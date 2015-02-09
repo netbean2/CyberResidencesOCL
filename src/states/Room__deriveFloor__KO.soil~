@@ -5,9 +5,3 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
-    
-!create r: Room
-!set r.number:=512
-!set r.floor:=6    
-    
-check

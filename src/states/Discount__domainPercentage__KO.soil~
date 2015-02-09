@@ -1,12 +1,7 @@
--- @assert Discount__domainPercentage OK
+-- @assert Discount__domainPercentage KO
 
 -- context self : Discount inv domainPercentage :
 -- Domain of percentage attribute.
 
 -- open -q <BASE>.soil
 -- here some mutation code
-
-!create d:Discount
-!set d.percentage:=60
-
-check

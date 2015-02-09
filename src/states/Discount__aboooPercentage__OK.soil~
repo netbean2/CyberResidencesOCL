@@ -5,9 +5,3 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
-
-!create d:Discount
-!set d.labe:='BROOO50'
-!set d.percentage:=50   
-    
-check

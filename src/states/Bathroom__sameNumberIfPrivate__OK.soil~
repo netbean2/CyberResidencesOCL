@@ -5,12 +5,3 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
-
-!create ba: Bathroom
-!create be: Bedroom
-!set ba.isOnTheLanding:=false
-!set ba.number:=101
-!set be.number:=101
-!set ba.bedroom:=be
-
-check

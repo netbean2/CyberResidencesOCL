@@ -5,3 +5,8 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create d:Discount
+!set d.percentage:=101
+
+check

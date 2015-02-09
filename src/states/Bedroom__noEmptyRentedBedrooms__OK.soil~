@@ -5,9 +5,3 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
-
-!create be:Bedroom
-!create t: Tenant
-!set be.tenant:=t
-      
-check

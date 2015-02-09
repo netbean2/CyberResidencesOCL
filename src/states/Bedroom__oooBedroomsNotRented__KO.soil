@@ -5,3 +5,10 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create be:Bedroom
+!create t:tenant
+!set be.isOutOfOrder:=true
+!set be.tenant:=t
+
+check

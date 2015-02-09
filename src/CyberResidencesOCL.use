@@ -198,7 +198,7 @@ context Tenant inv adultTenant:
 context Residence inv allPrestigeBathrooms:
     -- Residences of category prestige have in each bedroom at least
     -- the same number of bathroom that the number of beds.
-    self.category=Category::prestige implies self.bedrooms()->forAll(b | (b.nbOfSingleBeds+b.nbOfDoubleBeds)=b.bathrooms->size())
+    self.category=Category::prestige implies self.bedrooms()->forAll(b | (b.nbOfSingleBeds+b.nbOfDoubleBeds)<=b.bathrooms->size())
 
 
 
@@ -292,7 +292,7 @@ context Rent inv deriveDiscount:
 -- Easy
 
 context Room inv deriveFloor:
-    self.floor = self.number/100
+    self.floor = self.number div 100
     -- The floor number correspond to the first digits of the room
     -- number, where the last two digits are removed. For instance the
     -- room 634 is at the floor 6.
@@ -521,7 +521,7 @@ context Bathroom inv oooIfPrestige:
 
 
 -------------------------------------------------------------------------------
---DONE                              rentInOneResidence
+--DONE/TO CHECK                              rentInOneResidence
 -------------------------------------------------------------------------------
 -- Medium. Should be rather short.
 -- <Enter note text here>
@@ -571,7 +571,7 @@ context Bathroom inv sameNumberIfPrivate:
 
 
 -------------------------------------------------------------------------------
---DONE                             smokingPremiumPolicy
+--DONE/TO CHECK                             smokingPremiumPolicy
 -------------------------------------------------------------------------------
 -- Smoking policy for premium residences.
 -- Not easy
