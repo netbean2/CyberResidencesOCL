@@ -5,3 +5,8 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+
+!create t:Tenant
+!set t.age:=18
+check

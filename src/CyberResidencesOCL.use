@@ -187,15 +187,10 @@ context Resident inv adultMarried:
 
 
 -------------------------------------------------------------------------------
---DONE                                adultTenant
+--DONE TEST-OK-KO                               adultTenant
 -------------------------------------------------------------------------------
 -- Tenants are adults.
 -- Easy
-
---To test 
---!create t:Tenant
---!set t.age:=1
---check
 
 -- The minimal age to rent a bedroom is 18 years old.
 context Tenant inv adultTenant:
@@ -323,11 +318,10 @@ context Bathroom inv deriveIsOnTheLanding:
 
 
 -------------------------------------------------------------------------------
---                            deriveMaxNbOfFreeUnits
+-- DONE                           deriveMaxNbOfFreeUnits
 -------------------------------------------------------------------------------
 Derivation of maxNbOfFreeUnits attribute.
 -- Easy
-
 context Residence inv deriveMaxNbOfFreeUnits:
     self.bedrooms()->notEmpty() implies (self.maxNbOfFreeUnits = (self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfSingleBeds->sum()))
     -- The maximum number of free units is equal to the maximum number
@@ -510,7 +504,7 @@ context Resident inv noTutorForAdults:
 
 context Bedroom inv oooBedroomsNotRented:
     -- Bedrooms that are out of order cannot be rented.
-    self.isOutOfOrder implies self.tenant = null
+    self.isOutOfOrder implies self.tenant = undefined
 
 
 -------------------------------------------------------------------------------
