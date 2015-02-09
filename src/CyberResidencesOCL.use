@@ -312,7 +312,7 @@ context Bathroom inv deriveIsOnTheLanding:
 -------------------------------------------------------------------------------
 -- DONE                           deriveMaxNbOfFreeUnits
 -------------------------------------------------------------------------------
-Derivation of maxNbOfFreeUnits attribute.
+--Derivation of maxNbOfFreeUnits attribute.
 -- Easy
 context Residence inv deriveMaxNbOfFreeUnits:
     self.bedrooms()->notEmpty() implies (self.maxNbOfFreeUnits = (self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfSingleBeds->sum()))
@@ -485,7 +485,7 @@ context Bedroom inv noSquaters:
 
 context Resident inv noTutorForAdults:
     -- Adults never have tutor.
-    self.age>=18 implies tutors->isEmpty()
+    self.age>=18 implies tutored->isEmpty()
 
 
 -------------------------------------------------------------------------------
@@ -496,7 +496,7 @@ context Resident inv noTutorForAdults:
 
 context Bedroom inv oooBedroomsNotRented:
     -- Bedrooms that are out of order cannot be rented.
-    self.isOutOfOrder implies self.tenant = undefined
+    self.isOutOfOrder implies self.tenant = null
 
 
 -------------------------------------------------------------------------------
@@ -603,10 +603,10 @@ context Tenant inv tenantInRentedRoom:
 -- Tutors are adults.
 -- Easy
 
-context Resident inv tutorAdult:
-    -- A resident can not be the tutor of another resident if he or
+--context Resident inv tutorAdult:
+    -- A resident can't be the tutor of another resident if he or
     -- she is not an adult.
-    self.tutors->notEmpty() implies self.age < 18
+    --self.tutored->notEmpty() implies self.tutored.age > 18
 
 
 -------------------------------------------------------------------------------
