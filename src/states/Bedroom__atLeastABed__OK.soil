@@ -5,3 +5,9 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create b : Bedroom
+!set b.isOutOfOrder := false
+!set b.nbOfSingleBeds := 1
+!set b.nbOfDoubleBeds := 1
+check

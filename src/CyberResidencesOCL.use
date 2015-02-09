@@ -203,7 +203,7 @@ context Residence inv allPrestigeBathrooms:
 
 
 -------------------------------------------------------------------------------
---DONE                                atLeastABed
+--DONE TEST-OK-KO                               atLeastABed
 -------------------------------------------------------------------------------
 -- At least one bed for useful bedrooms.
 -- Easy. Use implies.
@@ -559,9 +559,10 @@ context Bathroom inv sameNumberIfPrivate:
 -- Percentage of "SBOOO" discount according to residence category.
 -- Not Easy. Should work with the corresponding invariant 'xxxConditions'
 
--- context Discount inv sboooPercentage:
+--context Discount inv sboooPercentage:
     -- In premium residences, SBOO discounts are equal to 25%. For
     -- standard category the discount is of 10%.
+    --self.label = 'SBOOO'and self.rent.rentedBedrooms.residence.category=Category::prenium implies self.per
 
 
 -------------------------------------------------------------------------------
