@@ -5,3 +5,11 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+!create r : Residence
+!set r.category := Category::prestige
+
+!create b : Bedroom
+!set b.isNonSmoking := false
+
+!insert (r,b) into ContainsRooms
+check

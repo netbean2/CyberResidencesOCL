@@ -577,7 +577,7 @@ context Bedroom inv smokingPremiumPolicy:
     self.isNonSmoking implies self.occupants->forAll(r | not r.isSmoker)
 
 -------------------------------------------------------------------------------
---DONE                            smokingPrestigePolicy
+--DONE TEST-OK-KO                           smokingPrestigePolicy
 -------------------------------------------------------------------------------
 -- No smoking is prestige.
 -- Easy
