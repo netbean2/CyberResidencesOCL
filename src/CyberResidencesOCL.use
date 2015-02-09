@@ -168,18 +168,10 @@ context Discount inv aboooPercentage:
 
 
 -------------------------------------------------------------------------------
---DONE                                 adultMarried
+--DONE TEST-OK-KO                                adultMarried
 -------------------------------------------------------------------------------
 -- Only adult married.
 -- Easy. Use 'implies'
-
---Test
---!create r:Resident
---!create r2:Resident
---!set r.age=18
---!set r.age:=18
---!insert (r,r2) into IsMarriedWith
---check
 
 context Resident inv adultMarried:
     self.consort->notEmpty() implies self.age >= 18

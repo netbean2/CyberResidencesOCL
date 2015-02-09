@@ -5,3 +5,9 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+!create r:Resident
+!create r2:Resident
+!set r.age=17
+!set r.age:=18
+!insert (r,r2) into IsMarriedWith
+check
