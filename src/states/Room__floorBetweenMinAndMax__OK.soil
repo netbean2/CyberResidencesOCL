@@ -5,3 +5,12 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+!create r : Residence
+!set r.floorMin := 0
+!set r.floorMax := 100
+
+!create b : Bedroom
+!set b.floor := 50
+
+!insert (r,b) into ContainsRooms
+check
