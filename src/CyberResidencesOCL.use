@@ -574,7 +574,7 @@ context Bathroom inv sameNumberIfPrivate:
 context Bedroom inv smokingPremiumPolicy:
     -- In a premium residence a resident that specified that he or she
     -- is non smoker will never ever be place in a smoking room.
-    self.isNonSmoking implies self.occupants->forAll(r | not r.isSmoker)
+    self.residence.category=Category::premium and self.isNonSmoking implies self.occupants->forAll(r | not r.isSmoker)
 
 -------------------------------------------------------------------------------
 --DONE TEST-OK-KO                           smokingPrestigePolicy
