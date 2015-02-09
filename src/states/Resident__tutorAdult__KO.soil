@@ -7,9 +7,9 @@
 -- here some mutation code
 
 !create r:Resident
-!set r.age:=18
+!set r.age:=7
 !create r2:Resident
-!set r2.age:=6
+!set r2.age:=8
 
 !insert (r,r2) into IsTutoredBy
 check

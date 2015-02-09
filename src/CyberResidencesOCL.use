@@ -478,7 +478,7 @@ context Bedroom inv noSquaters:
 
 
 -------------------------------------------------------------------------------
---DONE                               noTutorForAdults
+--DONE TEST-OK-KO                              noTutorForAdults
 -------------------------------------------------------------------------------
 -- No tutor for adults.
 -- Easy
@@ -603,10 +603,10 @@ context Tenant inv tenantInRentedRoom:
 -- Tutors are adults.
 -- Easy
 
---context Resident inv tutorAdult:
+context Resident inv tutorAdult:
     -- A resident can't be the tutor of another resident if he or
     -- she is not an adult.
-    --self.tutored->notEmpty() implies self.tutored.age > 18
+    self.tutors->notEmpty() implies self.age >= 18
 
 
 -------------------------------------------------------------------------------
