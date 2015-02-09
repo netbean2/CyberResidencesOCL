@@ -310,7 +310,7 @@ context Bathroom inv deriveIsOnTheLanding:
 
 
 -------------------------------------------------------------------------------
--- DONE                           deriveMaxNbOfFreeUnits
+-- DONE/TO DECIDE                           deriveMaxNbOfFreeUnits
 -------------------------------------------------------------------------------
 --Derivation of maxNbOfFreeUnits attribute.
 -- Easy
@@ -348,7 +348,7 @@ context Bedroom inv deriveNbOfUnits:
 
 
 -------------------------------------------------------------------------------
---TOCHECK 							deriveRate
+--TOCHECK/TO DECIDE 							deriveRate
 -------------------------------------------------------------------------------
 -- Derivation of the attribute rate.
 -- Easy
@@ -370,7 +370,7 @@ context Discount inv domainPercentage:
 
 
 -------------------------------------------------------------------------------
---DONE 						enoughBathroomsInPrestige
+--DONE/TO DECIDE 						enoughBathroomsInPrestige
 -------------------------------------------------------------------------------
 -- At least as many bathrooms than beds for prestige residence.
 -- Easy. Use implies.
@@ -447,7 +447,7 @@ context Resident inv marriageSymmetry:
 
 
 -------------------------------------------------------------------------------
---DONE                              noBedroomOverload
+--DONE/TO DECIDE                              noBedroomOverload
 -------------------------------------------------------------------------------
 -- No bedroom overloaded.
 -- Medium

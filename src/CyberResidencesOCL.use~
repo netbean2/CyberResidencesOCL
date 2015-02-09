@@ -299,11 +299,7 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
---DONE 								deriveIsOnTheLanding
-=======
 --DONE TEST-OK-KO deriveIsOnTheLanding
->>>>>>> 8a753a4382817436b31d7718bafbf5eec88045dc
 -------------------------------------------------------------------------------
 -- Derivation of isOnTheLanding attribute.
 -- Easy
@@ -427,11 +423,7 @@ context Resident inv marriageAntiReflexivity:
 
 
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
---TOCHECK                          marriageInSameGroup
-=======
 -- UNDONE                            marriageInSameGroup
->>>>>>> 8a753a4382817436b31d7718bafbf5eec88045dc
 -------------------------------------------------------------------------------
 -- Consorts in the same group.
 -- Medium
