@@ -379,7 +379,7 @@ context Bedroom inv enoughBathroomsInPrestige:
 
 
 -------------------------------------------------------------------------------
---DONE floorBetweenMinAndMax
+--DONE TEST-OK-KO floorBetweenMinAndMax
 -------------------------------------------------------------------------------
 -- Floor between minimum and maximum floors.
 -- Easy
