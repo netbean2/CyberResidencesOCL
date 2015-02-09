@@ -263,7 +263,7 @@ context Rent inv cumulatedDiscounts:
 
 
 -------------------------------------------------------------------------------
---                                deriveAvgRate
+-- UNDONE                               deriveAvgRate
 -------------------------------------------------------------------------------
 -- Derivation of the avgRate attribute.
 -- Medium
@@ -299,12 +299,12 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
---DONE 								deriveIsOnTheLanding
+--DONE TEST-OK-KO deriveIsOnTheLanding
 -------------------------------------------------------------------------------
 -- Derivation of isOnTheLanding attribute.
 -- Easy
 context Bathroom inv deriveIsOnTheLanding:
-    not self.isOnTheLanding implies self.bedroom->isEmpty()
+    self.isOnTheLanding implies self.bedroom->isEmpty()
 -- A bathroom is said to be on the landing if it is not in a
 -- bedroom.
 
@@ -334,7 +334,7 @@ context Bedroom inv deriveNbOfUnits:
 
 
 -------------------------------------------------------------------------------
---                                derivePaidRate
+-- UNDONE                               derivePaidRate
 -------------------------------------------------------------------------------
 -- Derivation of the attribute paidRate.
 -- Not Easy. Use 'if ... then ... else ... endif'   and
@@ -423,7 +423,7 @@ context Resident inv marriageAntiReflexivity:
 
 
 -------------------------------------------------------------------------------
---TOCHECK                          marriageInSameGroup
+-- UNDONE                            marriageInSameGroup
 -------------------------------------------------------------------------------
 -- Consorts in the same group.
 -- Medium
@@ -545,7 +545,7 @@ context Bathroom inv sameNumberIfPrivate:
 
 
 -------------------------------------------------------------------------------
---                               sboooConditions
+-- UNDONE                              sboooConditions
 -------------------------------------------------------------------------------
 -- Conditions for granting a discount "Some Bathrooms Out Of Order" (SBOOO).
 -- Not Easy. Use 'one'. Should world with 'xxxPercentage'
@@ -559,7 +559,7 @@ context Bathroom inv sameNumberIfPrivate:
 
 
 -------------------------------------------------------------------------------
---                               sboooPercentage
+-- UNDONE                              sboooPercentage
 -------------------------------------------------------------------------------
 -- Percentage of "SBOOO" discount according to residence category.
 -- Not Easy. Should work with the corresponding invariant 'xxxConditions'
@@ -616,7 +616,7 @@ context Resident inv tutorAdult:
 
 
 -------------------------------------------------------------------------------
---                               tutorInSameGroup
+-- UNDONE                              tutorInSameGroup
 -------------------------------------------------------------------------------
 -- Tutors and tutored in one group.
 -- Medium
@@ -628,7 +628,7 @@ context Resident inv tutorAdult:
 
 
 -------------------------------------------------------------------------------
---                     uniqueNumberApartForPrivateBathroom
+-- UNDONE                    uniqueNumberApartForPrivateBathroom
 -------------------------------------------------------------------------------
 -- Invariant on room numbering.
 -- Medium

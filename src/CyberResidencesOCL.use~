@@ -263,7 +263,7 @@ context Rent inv cumulatedDiscounts:
 
 
 -------------------------------------------------------------------------------
---                                deriveAvgRate
+-- UNDONE                               deriveAvgRate
 -------------------------------------------------------------------------------
 -- Derivation of the avgRate attribute.
 -- Medium
@@ -299,12 +299,16 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 --DONE 								deriveIsOnTheLanding
+=======
+--DONE TEST-OK-KO deriveIsOnTheLanding
+>>>>>>> 8a753a4382817436b31d7718bafbf5eec88045dc
 -------------------------------------------------------------------------------
 -- Derivation of isOnTheLanding attribute.
 -- Easy
 context Bathroom inv deriveIsOnTheLanding:
-    not self.isOnTheLanding implies self.bedroom->isEmpty()
+    self.isOnTheLanding implies self.bedroom->isEmpty()
 -- A bathroom is said to be on the landing if it is not in a
 -- bedroom.
 
@@ -334,7 +338,7 @@ context Bedroom inv deriveNbOfUnits:
 
 
 -------------------------------------------------------------------------------
---                                derivePaidRate
+-- UNDONE                               derivePaidRate
 -------------------------------------------------------------------------------
 -- Derivation of the attribute paidRate.
 -- Not Easy. Use 'if ... then ... else ... endif'   and
@@ -382,7 +386,7 @@ context Bedroom inv enoughBathroomsInPrestige:
 
 
 -------------------------------------------------------------------------------
---DONE TEST-OK-KO floorBetweenMinAndMax
+--DONE TEST-OK-KO 				floorBetweenMinAndMax
 -------------------------------------------------------------------------------
 -- Floor between minimum and maximum floors.
 -- Easy
@@ -393,7 +397,7 @@ context Room inv floorBetweenMinAndMax:
 
 
 -------------------------------------------------------------------------------
---DONE TEST-OK-KO floorOrder
+--DONE TEST-OK-KO 					floorOrder
 -------------------------------------------------------------------------------
 -- Order between floorMin and floorMax attributes.
 -- Easy
@@ -403,7 +407,7 @@ context Residence inv floorOrder:
 -- minimum floor of the residence.
 
 -------------------------------------------------------------------------------
---TOCHECK labelUnique
+--TOCHECK 							labelUnique
 -------------------------------------------------------------------------------
 -- Uniqueness of labels with respect to rents.
 -- Easy. Use 'unique'
@@ -413,7 +417,7 @@ context Rent inv labelUnique:
 
 
 -------------------------------------------------------------------------------
---TOCKECK marriageAntiReflexivity
+--TOCKECK 						marriageAntiReflexivity
 -------------------------------------------------------------------------------
 -- Anti-reflexivity of marriage relationship.
 -- Easy
@@ -423,7 +427,11 @@ context Resident inv marriageAntiReflexivity:
 
 
 -------------------------------------------------------------------------------
---                             marriageInSameGroup
+<<<<<<< HEAD
+--TOCHECK                          marriageInSameGroup
+=======
+-- UNDONE                            marriageInSameGroup
+>>>>>>> 8a753a4382817436b31d7718bafbf5eec88045dc
 -------------------------------------------------------------------------------
 -- Consorts in the same group.
 -- Medium
@@ -431,6 +439,7 @@ context Resident inv marriageAntiReflexivity:
 -- context Resident inv marriageInSameGroup:
     -- A resident and his or her consort occupies a room of the same
     -- group.
+    self.consort->notEmpty() implies self.occupiedRoom=self.consort.occupiedRoom
 
 
 -------------------------------------------------------------------------------
@@ -456,6 +465,7 @@ context Bedroom inv noBedroomOverload:
     -- units of this bedroom. Children up to 3 years old are not
     -- counted in this rule.
     self.occupants->select(age>3)->size()=self.nbOfUnits
+    --self.occupants->select(age>3)->size()<=self.nbOfUnits
 
 
 -------------------------------------------------------------------------------
@@ -481,7 +491,7 @@ context Bedroom inv noSquaters:
 
 
 -------------------------------------------------------------------------------
---DONE TEST-OK-KO                              noTutorForAdults
+--DONE TEST-OK-KO                      noTutorForAdults
 -------------------------------------------------------------------------------
 -- No tutor for adults.
 -- Easy
@@ -543,7 +553,7 @@ context Bathroom inv sameNumberIfPrivate:
 
 
 -------------------------------------------------------------------------------
---                               sboooConditions
+-- UNDONE                              sboooConditions
 -------------------------------------------------------------------------------
 -- Conditions for granting a discount "Some Bathrooms Out Of Order" (SBOOO).
 -- Not Easy. Use 'one'. Should world with 'xxxPercentage'
@@ -557,7 +567,7 @@ context Bathroom inv sameNumberIfPrivate:
 
 
 -------------------------------------------------------------------------------
---                               sboooPercentage
+-- UNDONE                              sboooPercentage
 -------------------------------------------------------------------------------
 -- Percentage of "SBOOO" discount according to residence category.
 -- Not Easy. Should work with the corresponding invariant 'xxxConditions'
@@ -614,7 +624,7 @@ context Resident inv tutorAdult:
 
 
 -------------------------------------------------------------------------------
---                               tutorInSameGroup
+-- UNDONE                              tutorInSameGroup
 -------------------------------------------------------------------------------
 -- Tutors and tutored in one group.
 -- Medium
@@ -626,7 +636,7 @@ context Resident inv tutorAdult:
 
 
 -------------------------------------------------------------------------------
---                     uniqueNumberApartForPrivateBathroom
+-- UNDONE                    uniqueNumberApartForPrivateBathroom
 -------------------------------------------------------------------------------
 -- Invariant on room numbering.
 -- Medium
