@@ -225,7 +225,7 @@ context Bedroom inv atLeastOneAdult:
 
 
 -------------------------------------------------------------------------------
---DONE                               childNonSmoking
+--DONE TEST-OK-KO                              childNonSmoking
 -------------------------------------------------------------------------------
 -- Non smoking child.
 -- Easy
