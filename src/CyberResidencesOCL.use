@@ -598,7 +598,7 @@ context Tenant inv tenantInRentedRoom:
 
 
 -------------------------------------------------------------------------------
---DONE                                  tutorAdult
+--DONE TEST-OK-KO                                 tutorAdult
 -------------------------------------------------------------------------------
 -- Tutors are adults.
 -- Easy
