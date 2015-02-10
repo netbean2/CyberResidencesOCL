@@ -214,7 +214,7 @@ context Bedroom inv atLeastABed:
 
 
 -------------------------------------------------------------------------------
---DONE                           atLeastOneAdult
+--DONE test-ok-ko                          atLeastOneAdult
 -------------------------------------------------------------------------------
 -- At least one adult per room.
 -- Easy. Use 'implies'
