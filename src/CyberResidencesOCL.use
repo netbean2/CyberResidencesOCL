@@ -505,7 +505,7 @@ context Bedroom inv oooBedroomsNotRented:
 
 
 -------------------------------------------------------------------------------
---DONE                                oooIfPrestige
+--DONE test ok-ko                                oooIfPrestige
 -------------------------------------------------------------------------------
 -- Out of order bathroom implications if prestige. 
 -- Medium. Use 'implies'
@@ -532,7 +532,7 @@ context Tenant inv rentInOneResidence:
 
 
 -------------------------------------------------------------------------------
---DONE                             sameNumberIfPrivate
+--DONE test-ok-ko                            sameNumberIfPrivate
 -------------------------------------------------------------------------------
 -- Same number if private.
 -- Easy. Use 'implies'.

@@ -8,9 +8,12 @@
 
 !create ba: Bathroom
 !create be: Bedroom
+!create r: Residence
 !set ba.isOnTheLanding:=false
 !set ba.number:=101
 !set be.number:=102
-!set ba.bedroom:=be
+!insert (ba,be) into IsInBedroom
+!insert (r,be) into ContainsRooms
+!insert (r,ba) into ContainsRooms
 
 check
