@@ -190,7 +190,7 @@ context Tenant inv adultTenant:
 
 
 -------------------------------------------------------------------------------
---DONE                             allPrestigeBathrooms
+--DONE test-ok-ko                            allPrestigeBathrooms
 -------------------------------------------------------------------------------
 -- Invariant about all bathrooms for 'prestige' residence.
 -- Medium. use 'implies'.

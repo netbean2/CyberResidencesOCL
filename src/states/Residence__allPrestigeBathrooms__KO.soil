@@ -7,7 +7,7 @@
 -- here some mutation code
     
 !create r:Residence
-!set r.category:='prestige'
+!set r.category:=Category::prestige
 !create b1:Bedroom
 !create ba1:Bathroom
 !create ba2:Bathroom 
@@ -16,7 +16,12 @@
 !set b1.nbOfSingleBeds:=1
 !set b1.nbOfDoubleBeds:=1
 
-!set b1.residence:=r
-!set ba1.bedroom:=b1    
-    
+!insert (r,ba1) into ContainsRooms
+!insert (r,ba2) into ContainsRooms
+!insert (r,ba3) into ContainsRooms
+!insert (r,ba4) into ContainsRooms
+!insert (r,b1) into ContainsRooms
+
+!insert (ba1,b1) into IsInBedroom
+
 check
