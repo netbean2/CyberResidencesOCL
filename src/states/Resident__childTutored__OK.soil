@@ -9,11 +9,14 @@
 !create r1:Resident
 !create r2:Resident
 !create b:Bedroom
+!create r:Residence
 
 !set r1.age:=15
 !set r2.age:=20
 
-!set r1.occupiedRoom:=b
-!set r1.tutored:=r2
+!insert (b,r1) into IsOccupiedBy
+!insert (b,r2) into IsOccupiedBy
+!insert (r2,r1) into IsTutoredBy
+!insert (r,b) into ContainsRooms
        
 check
