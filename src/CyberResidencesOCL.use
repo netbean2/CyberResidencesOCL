@@ -168,7 +168,7 @@ context Discount inv aboooPercentage:
 
 
 -------------------------------------------------------------------------------
---DONE TEST-OK-KO                                adultMarried
+--DONE test-ok-ko                               adultMarried
 -------------------------------------------------------------------------------
 -- Only adult married.
 -- Easy. Use 'implies'
