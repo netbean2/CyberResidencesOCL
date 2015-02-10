@@ -179,7 +179,7 @@ context Resident inv adultMarried:
 
 
 -------------------------------------------------------------------------------
---DONE TEST-OK-KO                               adultTenant
+--DONE test-ok-ko                               adultTenant
 -------------------------------------------------------------------------------
 -- Tenants are adults.
 -- Easy
