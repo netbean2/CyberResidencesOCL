@@ -593,7 +593,7 @@ context Bedroom inv smokingPrestigePolicy:
 
 
 -------------------------------------------------------------------------------
---DONE                              tenantInRentedRoom
+--DONE test-ok-ko                              tenantInRentedRoom
 -------------------------------------------------------------------------------
 -- Room occupied by the tenant.
 -- Medium. 
