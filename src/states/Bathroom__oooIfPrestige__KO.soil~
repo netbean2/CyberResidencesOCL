@@ -8,10 +8,11 @@
 
 !create ba: Bathroom
 !create be: Bedroom
-!set be.residence.category:='prestige'
+!create r: Residence
+!set r.category:=Category::prestige
 !set ba.isOutOfOrder:=true
-!set be.isOutOfOrder:=true
-!set ba.bedroom:=be
+!set be.isOutOfOrder:=false
+!insert (ba,be) into IsInBedroom
+!insert (r,be) into ContainsRooms
 
 check
-
