@@ -6,8 +6,10 @@
 -- open -q <BASE>.soil
 -- here some mutation code
 
+!create re: Residence    
 !create r: Room
 !set r.number:=512
-!set r.floor:=5  
+!set r.floor:=5    
+!insert (re,r) into ContainsRooms    
     
 check

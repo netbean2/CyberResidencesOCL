@@ -286,7 +286,7 @@ context Rent inv deriveDiscount:
     self.discount=self.rentedBedrooms.rate*(self.discounts->collect(percentage))->sum()
 
 -------------------------------------------------------------------------------
---DONE                                 deriveFloor
+--DONE test-ok-ko                                 deriveFloor
 -------------------------------------------------------------------------------
 -- Derivation of the attribute floor.
 -- Easy
