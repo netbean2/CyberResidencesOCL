@@ -431,7 +431,7 @@ context Resident inv marriageAntiReflexivity:
 -- context Resident inv marriageInSameGroup:
     -- A resident and his or her consort occupies a room of the same
     -- group.
-    self.consort->notEmpty() implies self.occupiedRoom=self.consort.occupiedRoom
+    --self.consort->notEmpty() implies self.occupiedRoom=self.consort.occupiedRoom
 
 
 -------------------------------------------------------------------------------
