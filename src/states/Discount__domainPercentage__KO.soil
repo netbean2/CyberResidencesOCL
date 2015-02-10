@@ -7,6 +7,13 @@
 -- here some mutation code
 
 !create d:Discount
-!set d.percentage:=101
-
+!create be:Bedroom
+!create r: Residence
+!create t: Tenant
+!create ren:Rent between (be,t)
+!set d.percentage:=101  
+!insert (be,t) into IsOccupiedBy
+!insert (r,be) into ContainsRooms
+!insert (ren,d) into HasDiscounts
+      
 check
