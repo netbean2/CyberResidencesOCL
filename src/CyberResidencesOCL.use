@@ -157,7 +157,7 @@ context Rent inv aboooConditions:
     -- rule does not apply in economy residences.
 
 -------------------------------------------------------------------------------
---DONE                               aboooPercentage
+--DONE test-ok-ko                              aboooPercentage
 -------------------------------------------------------------------------------
 -- Percentage of "ABOOO" discount according to residence category.
 -- Not Easy. Should work with the corresponding invariant 'xxxConditions'
@@ -494,7 +494,7 @@ context Resident inv noTutorForAdults:
 
 
 -------------------------------------------------------------------------------
---DONE                             oooBedroomsNotRented
+--DONE test-ok-ko                             oooBedroomsNotRented
 -------------------------------------------------------------------------------
 -- No rental of Out Of Order bedrooms.
 -- Easy
