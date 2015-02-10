@@ -321,7 +321,7 @@ context Residence inv deriveMaxNbOfFreeUnits:
     -- of places in beds of all rooms of the residence.
 
 -------------------------------------------------------------------------------
---DONE 								deriveNbOfUnits
+--DONE test-ok-ko 								deriveNbOfUnits
 -------------------------------------------------------------------------------
 -- Derivation of nbOfUnits attribute.
 -- Easy

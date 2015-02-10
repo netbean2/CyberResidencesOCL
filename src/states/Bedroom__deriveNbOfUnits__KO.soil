@@ -7,17 +7,20 @@
 -- here some mutation code
 
 !create be:Bedroom
-!create r1: Resident
-!create r2: Resident
-!create r3: Resident
-!create r4: Resident
+--!create r1: Resident
+--!create r2: Resident
+--!create r3: Resident
+--!create r4: Resident
+!create r: Residence
 
 !set be.nbOfSingleBeds:=1
 !set be.nbOfDoubleBeds:=1
+!set be.nbOfUnits:=4
 
-!set r1.occupiedRoom:=be
-!set r2.occupiedRoom:=be
-!set r3.occupiedRoom:=be
-!set r4.occupiedRoom:=be
+--!insert (be,r1) into IsOccupiedBy
+--!insert (be,r2) into IsOccupiedBy
+--!insert (be,r3) into IsOccupiedBy
+--!insert (be,r4) into IsOccupiedBy
+!insert (r,be) into ContainsRooms
 
 check
