@@ -237,7 +237,7 @@ context Resident inv childNonSmoking:
 
 
 -------------------------------------------------------------------------------
---DONE                                 childTutored
+--DONE test-ok-ko                                childTutored
 -------------------------------------------------------------------------------
 -- Child tutored.
 -- Medium
