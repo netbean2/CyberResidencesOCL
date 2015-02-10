@@ -7,8 +7,11 @@
 -- here some mutation code
 
 !create be:Bedroom
-!create t:tenant
+!create t:Tenant
+!create r:Residence
 !set be.isOutOfOrder:=false
-!set be.tenant:=t
+!create ren:Rent between (be,t)
+!insert (be,t) into IsOccupiedBy
+!insert (r,be) into ContainsRooms
 
 check
