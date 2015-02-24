@@ -546,17 +546,23 @@ context Bathroom inv sameNumberIfPrivate:
 
 
 -------------------------------------------------------------------------------
--- UNDONE                              sboooConditions
+-- DONE                              sboooConditions
 -------------------------------------------------------------------------------
 -- Conditions for granting a discount "Some Bathrooms Out Of Order" (SBOOO).
 -- Not Easy. Use 'one'. Should world with 'xxxPercentage'
 
--- context Rent inv sboooConditions:
+context Rent inv sboooConditions:
     -- A discount if given for a bed room if there are "Some Bathrooms
     -- Out Of Order", that is for bedroom with at least one bathroom
     -- out of order, but at least one bathroom still available.  The
     -- label for this type of discount is SBOO. This type of discount
     -- does not apply on economy residences.
+    --nb of bathroom OOO is inf to total nb of bathroom
+    self.rentedBedrooms.bathrooms.select(br | br.isOutOfOrder)->size() < self.rentedBedrooms.bathrooms->size() 
+    --At least one bathoom OOO
+    and self.rentedBedrooms.bathrooms.select(br | br.isOutOfOrder)->notEmpty()
+    implies
+    self.discounts.exists(d | d.label = 'SBOO')
 
 
 -------------------------------------------------------------------------------
