@@ -641,6 +641,6 @@ context Resident inv tutorInSameGroup:
 -- Invariant on room numbering.
 -- Medium
 
--- context Residence inv uniqueNumberApartForPrivateBathroom:
+context Residence inv uniqueNumberApartForPrivateBathroom:
     -- All rooms have a distinct number, except private bathrooms.
-
+    self.rooms->reject(self.bathrooms->select(b|b.isOnTheLanding=true))->unique(number)
