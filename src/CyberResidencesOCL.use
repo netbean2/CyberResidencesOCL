@@ -623,7 +623,7 @@ context Resident inv tutorAdult:
 
 
 -------------------------------------------------------------------------------
--- DONE                              tutorInSameGroup
+-- DONE                            tutorInSameGroup
 -------------------------------------------------------------------------------
 -- Tutors and tutored in one group.
 -- Medium
