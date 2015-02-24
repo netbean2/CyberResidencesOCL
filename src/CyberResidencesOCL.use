@@ -39,7 +39,6 @@ operations
         rooms->select(oclIsKindOf(Bathroom))->oclAsType(Set(Bathroom))
 end
 
-
 class Room
 attributes
     number : Integer
@@ -636,11 +635,11 @@ context Resident inv tutorInSameGroup:
 
 
 -------------------------------------------------------------------------------
--- UNDONE                    uniqueNumberApartForPrivateBathroom
+-- DONE                    uniqueNumberApartForPrivateBathroom
 -------------------------------------------------------------------------------
 -- Invariant on room numbering.
 -- Medium
 
 context Residence inv uniqueNumberApartForPrivateBathroom:
     -- All rooms have a distinct number, except private bathrooms.
-    self.rooms->reject(self.bathrooms->select(b|b.isOnTheLanding=true))->unique(number)
+    self.rooms->notEmpty() implies self.bedrooms()->union(self.bathrooms()->reject(b|b.isOnTheLanding=true))->isUnique(number)
