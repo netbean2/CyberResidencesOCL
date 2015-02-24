@@ -6,15 +6,21 @@
 -- open -q <BASE>.soil
 -- here some mutation code
 
---A FAIRE
 !create ba: Bathroom
+!create ba2: Bathroom
 !create be: Bedroom
 !create r: Residence
+
 !set r.category:=Category::prestige
-!set ba.isOutOfOrder:=true
-!set be.isOutOfOrder:=true
+!set ba.isOnTheLanding:=false
+!set ba2.isOnTheLanding:=false
+!set be.nbOfSingleBeds:=1
+!set be.nbOfDoubleBeds:=1
+
 !insert (ba,be) into IsInBedroom
+!insert (ba2,be) into IsInBedroom
 !insert (r,be) into ContainsRooms
 !insert (r,ba) into ContainsRooms
+!insert (r,ba2) into ContainsRooms
 
 check

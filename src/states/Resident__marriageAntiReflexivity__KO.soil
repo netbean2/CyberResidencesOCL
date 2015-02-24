@@ -5,3 +5,18 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create be:Bedroom
+!create re:Residence
+!create r:Resident
+!create r2:Resident
+
+!set r.age:=19
+!set r2.age:=18
+!insert (r,r) into IsMarriedWith
+!insert (be,r) into IsOccupiedBy
+!insert (be,r2) into IsOccupiedBy
+
+!insert (re,be) into ContainsRooms
+
+check

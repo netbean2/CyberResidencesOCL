@@ -368,12 +368,11 @@ context Discount inv domainPercentage:
 
 
 -------------------------------------------------------------------------------
---DONE/TO DECIDE 						enoughBathroomsInPrestige
+--DONE test-ok-ko						enoughBathroomsInPrestige
 -------------------------------------------------------------------------------
 -- At least as many bathrooms than beds for prestige residence.
 -- Easy. Use implies.
 context Bedroom inv enoughBathroomsInPrestige:
-    --self.residence.category=Category::prestige implies self.residence.bathrooms()->size()>=(self.nbOfSingleBeds+nbOfDoubleBeds)
     self.residence.category=Category::prestige implies self.residence.bathrooms()->collect(isOnTheLanding=false)->size()>=(self.nbOfSingleBeds+self.nbOfDoubleBeds)
 -- In a prestige residence, the number of private bathrooms is at
 -- least the same as the number of beds in each bedroom.
@@ -401,7 +400,7 @@ context Residence inv floorOrder:
 -- minimum floor of the residence.
 
 -------------------------------------------------------------------------------
---TOCHECK 							labelUnique
+--DONE test-ok-ko 							labelUnique
 -------------------------------------------------------------------------------
 -- Uniqueness of labels with respect to rents.
 -- Easy. Use 'unique'
@@ -411,7 +410,7 @@ context Rent inv labelUnique:
 
 
 -------------------------------------------------------------------------------
---TOCKECK 						marriageAntiReflexivity
+--DONE test-ok-ko 						marriageAntiReflexivity
 -------------------------------------------------------------------------------
 -- Anti-reflexivity of marriage relationship.
 -- Easy
@@ -421,7 +420,7 @@ context Resident inv marriageAntiReflexivity:
 
 
 -------------------------------------------------------------------------------
--- DONE                           marriageInSameGroup
+-- DONE test-ok-ko                          marriageInSameGroup
 -------------------------------------------------------------------------------
 -- Consorts in the same group.
 -- Medium
