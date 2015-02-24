@@ -5,3 +5,16 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+--A FAIRE
+!create ba: Bathroom
+!create be: Bedroom
+!create r: Residence
+!set r.category:=Category::prestige
+!set ba.isOutOfOrder:=true
+!set be.isOutOfOrder:=true
+!insert (ba,be) into IsInBedroom
+!insert (r,be) into ContainsRooms
+!insert (r,ba) into ContainsRooms
+
+check

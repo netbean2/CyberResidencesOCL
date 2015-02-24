@@ -252,7 +252,7 @@ context Resident inv childTutored:
 
 
 -------------------------------------------------------------------------------
---TOCKECK                              cumulatedDiscounts
+--DONE test-ok-ko                             cumulatedDiscounts
 -------------------------------------------------------------------------------
 -- Limit of cumulated discounts.
 -- Easy. Use 'sum'
@@ -275,7 +275,7 @@ context Rent inv cumulatedDiscounts:
 
 
 -------------------------------------------------------------------------------
---TOCKECK                                deriveDiscount
+--DONE test-ok-ko                                deriveDiscount
 -------------------------------------------------------------------------------
 -- Derivation of the attribute discount.
 -- Easy
@@ -299,7 +299,7 @@ context Room inv deriveFloor:
 
 
 -------------------------------------------------------------------------------
---DONE TEST-OK-KO deriveIsOnTheLanding
+--DONE TEST-OK-KO 							deriveIsOnTheLanding
 -------------------------------------------------------------------------------
 -- Derivation of isOnTheLanding attribute.
 -- Easy
@@ -310,13 +310,12 @@ context Bathroom inv deriveIsOnTheLanding:
 
 
 -------------------------------------------------------------------------------
--- DONE/TO DECIDE                           deriveMaxNbOfFreeUnits
+-- DONE test-ok-ko                         deriveMaxNbOfFreeUnits
 -------------------------------------------------------------------------------
 --Derivation of maxNbOfFreeUnits attribute.
 -- Easy
 context Residence inv deriveMaxNbOfFreeUnits:
-    self.bedrooms()->notEmpty() implies (self.maxNbOfFreeUnits = (self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfSingleBeds->sum()))
-    --self.maxNbOfFreeUnits=self.usefulBedrooms().nbOfUnits->sum()
+    self.usefulBedrooms()->notEmpty() implies (self.maxNbOfFreeUnits = (self.usefulBedrooms().nbOfDoubleBeds->sum()+self.usefulBedrooms().nbOfDoubleBeds->sum()+self.usefulBedrooms().nbOfSingleBeds->sum()))
     -- The maximum number of free units is equal to the maximum number
     -- of places in beds of all rooms of the residence.
 
@@ -348,19 +347,18 @@ context Bedroom inv deriveNbOfUnits:
 
 
 -------------------------------------------------------------------------------
---TOCHECK/TO DECIDE 							deriveRate
+--DONE test-ok-ko 							deriveRate
 -------------------------------------------------------------------------------
 -- Derivation of the attribute rate.
 -- Easy
 context Rent inv deriveRate:
-   self.rate = self.rentedBedrooms.rate-(self.discount/100)*self.rentedBedrooms.rate
-   --self.rate = self.rentedBedrooms.rate-self.discount
+   self.rate = self.rentedBedrooms.rate-self.discount
 -- The rate of a rent corresponds to the regular rate for the room
 -- minus the discount.
 
 
 -------------------------------------------------------------------------------
---DONE 							domainPercentage
+--DONE test-ok-ko							domainPercentage
 -------------------------------------------------------------------------------
 -- Domain of percentage attribute.
 -- Easy
@@ -375,8 +373,8 @@ context Discount inv domainPercentage:
 -- At least as many bathrooms than beds for prestige residence.
 -- Easy. Use implies.
 context Bedroom inv enoughBathroomsInPrestige:
-    self.residence.category=Category::prestige implies self.residence.bathrooms()->size()>=(self.nbOfSingleBeds+nbOfDoubleBeds)
-    --self.residence.category=Category::prestige implies self.residence.bathrooms()->collect(isOnTheLanding=false)->size()>=(self.nbOfSingleBeds+self.nbOfDoubleBeds)
+    --self.residence.category=Category::prestige implies self.residence.bathrooms()->size()>=(self.nbOfSingleBeds+nbOfDoubleBeds)
+    self.residence.category=Category::prestige implies self.residence.bathrooms()->collect(isOnTheLanding=false)->size()>=(self.nbOfSingleBeds+self.nbOfDoubleBeds)
 -- In a prestige residence, the number of private bathrooms is at
 -- least the same as the number of beds in each bedroom.
 
@@ -471,7 +469,7 @@ context Bedroom inv noEmptyRentedBedrooms:
     self.tenant->notEmpty() implies self.occupants->notEmpty()
 
 -------------------------------------------------------------------------------
---DONE                                  noSquaters
+--DONE test-ok-ko                                 noSquaters
 -------------------------------------------------------------------------------
 -- Nobody in rooms not rented.
 -- Easy. Use 'implies'
