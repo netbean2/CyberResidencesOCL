@@ -423,15 +423,16 @@ context Resident inv marriageAntiReflexivity:
 
 
 -------------------------------------------------------------------------------
--- UNDONE                            marriageInSameGroup
+-- DONE                           marriageInSameGroup
 -------------------------------------------------------------------------------
 -- Consorts in the same group.
 -- Medium
 
--- context Resident inv marriageInSameGroup:
+context Resident inv marriageInSameGroup:
     -- A resident and his or her consort occupies a room of the same
     -- group.
     --self.consort->notEmpty() implies self.occupiedRoom=self.consort.occupiedRoom
+    self.consort->notEmpty() implies self.occupiedRoom.tenant.rentedBedrooms.occupants->exists(p|p=self.consort)
 
 
 -------------------------------------------------------------------------------
@@ -616,15 +617,16 @@ context Resident inv tutorAdult:
 
 
 -------------------------------------------------------------------------------
--- UNDONE                              tutorInSameGroup
+-- DONE                              tutorInSameGroup
 -------------------------------------------------------------------------------
 -- Tutors and tutored in one group.
 -- Medium
 
--- context Resident inv tutorInSameGroup:
+context Resident inv tutorInSameGroup:
     -- The tutors of a resident are in the same group that this
     -- resident. In other words they are all in the same group of
     -- rooms.
+    self.tutors->notEmpty() implies self.occupiedRoom.tenant.rentedBedrooms.occupants->exists(p|p.tutors->exists(p2|p2=self))
 
 
 -------------------------------------------------------------------------------
