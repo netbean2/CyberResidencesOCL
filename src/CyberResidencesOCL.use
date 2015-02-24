@@ -632,7 +632,7 @@ context Resident inv tutorInSameGroup:
     -- The tutors of a resident are in the same group that this
     -- resident. In other words they are all in the same group of
     -- rooms.
-    self.tutors->notEmpty() implies self.occupiedRoom.tenant.rentedBedrooms.occupants->exists(p|p.tutors->exists(p2|p2=self))
+    self.tutors->notEmpty() implies self.occupiedRoom.tenant.rentedBedrooms.occupants->exists(p|p.tutored->exists(p2|p2=self))
 
 
 -------------------------------------------------------------------------------
