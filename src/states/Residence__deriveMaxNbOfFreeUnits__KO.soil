@@ -5,3 +5,22 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create be1:Bedroom
+!create be2:Bedroom
+!create r: Residence
+
+!set be1.isOutOfOrder:=false
+!set be2.isOutOfOrder:=false
+
+!set be1.nbOfSingleBeds:=1
+!set be2.nbOfSingleBeds:=2
+!set be1.nbOfDoubleBeds:=1
+!set be2.nbOfDoubleBeds:=2
+
+!insert (r,be1) into ContainsRooms
+!insert (r,be2) into ContainsRooms
+
+!set r.maxNbOfFreeUnits:=be1.nbOfSingleBeds+2*be1.nbOfDoubleBeds+be2.nbOfSingleBeds+2*be2.nbOfDoubleBeds-1
+      
+check

@@ -5,3 +5,21 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create be:Bedroom
+!create r: Residence
+!create t: Tenant
+!create d: Discount
+
+!set d.percentage:=10
+!set be.rate:=60
+
+!create ren:Rent between (be,t)
+!insert (be,t) into IsOccupiedBy
+!insert (r,be) into ContainsRooms
+!insert (ren,d) into HasDiscounts
+
+!set ren.discount:=d.percentage
+!set ren.rate:=be.rate-ren.discount
+      
+check
