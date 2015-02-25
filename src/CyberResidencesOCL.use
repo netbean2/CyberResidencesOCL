@@ -427,7 +427,6 @@ context Resident inv marriageAntiReflexivity:
 context Resident inv marriageInSameGroup:
     -- A resident and his or her consort occupies a room of the same
     -- group.
-    --self.consort->notEmpty() implies self.occupiedRoom=self.consort.occupiedRoom
     self.consort->notEmpty() implies self.occupiedRoom.tenant.rentedBedrooms.occupants->exists(p|p=self.consort)
 
 
@@ -444,7 +443,7 @@ context Resident inv marriageSymmetry:
 
 
 -------------------------------------------------------------------------------
---DONE/TO DECIDE                              noBedroomOverload
+--DONE                            noBedroomOverload
 -------------------------------------------------------------------------------
 -- No bedroom overloaded.
 -- Medium
@@ -453,8 +452,7 @@ context Bedroom inv noBedroomOverload:
     -- There must be no more people in a bedroom that the number of
     -- units of this bedroom. Children up to 3 years old are not
     -- counted in this rule.
-    self.occupants->select(age>3)->size()=self.nbOfUnits
-    --self.occupants->select(age>3)->size()<=self.nbOfUnits
+    self.occupants->select(age>3)->size()<=self.nbOfUnits
 
 
 -------------------------------------------------------------------------------
@@ -518,7 +516,7 @@ context Bathroom inv oooIfPrestige:
 
 
 -------------------------------------------------------------------------------
---DONE/TO CHECK                              rentInOneResidence
+--DONE                         rentInOneResidence
 -------------------------------------------------------------------------------
 -- Medium. Should be rather short.
 -- <Enter note text here>
