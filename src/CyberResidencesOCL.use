@@ -431,7 +431,7 @@ context Resident inv marriageInSameGroup:
 
 
 -------------------------------------------------------------------------------
---TOCHECK                               marriageSymmetry
+--DONE                            marriageSymmetry
 -------------------------------------------------------------------------------
 -- Symmetry of marriage relationship.
 -- Easy
@@ -573,7 +573,7 @@ context Discount inv sboooPercentage:
     self.label = 'SBOOO'and self.rent.rentedBedrooms.residence.category=Category::standard implies self.percentage=10
 
 -------------------------------------------------------------------------------
---DONE/TO CHECK                             smokingPremiumPolicy
+--DONE                          smokingPremiumPolicy
 -------------------------------------------------------------------------------
 -- Smoking policy for premium residences.
 -- Not easy
