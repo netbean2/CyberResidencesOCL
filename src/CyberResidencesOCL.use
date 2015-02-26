@@ -431,7 +431,7 @@ context Resident inv marriageInSameGroup:
 
 
 -------------------------------------------------------------------------------
---DONE                            marriageSymmetry
+--DONE test-ok-ko                           marriageSymmetry
 -------------------------------------------------------------------------------
 -- Symmetry of marriage relationship.
 -- Easy
@@ -443,7 +443,7 @@ context Resident inv marriageSymmetry:
 
 
 -------------------------------------------------------------------------------
---DONE                            noBedroomOverload
+--DONE test-ok-ko                           noBedroomOverload
 -------------------------------------------------------------------------------
 -- No bedroom overloaded.
 -- Medium
@@ -516,7 +516,7 @@ context Bathroom inv oooIfPrestige:
 
 
 -------------------------------------------------------------------------------
---DONE                         rentInOneResidence
+--DONE  test-ok-ko                       rentInOneResidence
 -------------------------------------------------------------------------------
 -- Medium. Should be rather short.
 -- <Enter note text here>
@@ -524,7 +524,7 @@ context Bathroom inv oooIfPrestige:
 context Tenant inv rentInOneResidence:
     -- For a given tenant, all rented bedrooms are in the same
     self.rentedBedrooms->forAll(b | self.rentedBedrooms->forAll(b2 | b.residence=b2.residence))
-
+    
 
 -------------------------------------------------------------------------------
 --DONE test-ok-ko                            sameNumberIfPrivate
@@ -540,7 +540,7 @@ context Bathroom inv sameNumberIfPrivate:
 
 
 -------------------------------------------------------------------------------
--- DONE                              sboooConditions
+-- DONE  test-ok-ko                            sboooConditions
 -------------------------------------------------------------------------------
 -- Conditions for granting a discount "Some Bathrooms Out Of Order" (SBOOO).
 -- Not Easy. Use 'one'. Should world with 'xxxPercentage'
@@ -552,28 +552,24 @@ context Rent inv sboooConditions:
     -- label for this type of discount is SBOO. This type of discount
     -- does not apply on economy residences.
     --nb of bathroom OOO is inf to total nb of bathroom
-    self.rentedBedrooms.bathrooms.select(br | br.isOutOfOrder)->size() < self.rentedBedrooms.bathrooms->size() 
-    --At least one bathoom OOO
-    and self.rentedBedrooms.bathrooms.select(br | br.isOutOfOrder)->notEmpty()
-    implies
-    self.discounts.exists(d | d.label = 'SBOO')
+    --At least one bathoom OOO    
+    self.discounts->exists(label='SBOO') implies self.rentedBedrooms.bathrooms->exists(isOutOfOrder=true) and self.rentedBedrooms.bathrooms->exists(isOutOfOrder=false) and self.rentedBedrooms.residence.category<>#economy
 
 
 -------------------------------------------------------------------------------
--- DONE                              sboooPercentage
+-- DONE test-ok-ko                             sboooPercentage
 -------------------------------------------------------------------------------
 -- Percentage of "SBOOO" discount according to residence category.
 -- Not Easy. Should work with the corresponding invariant 'xxxConditions'
 
 context Discount inv sboooPercentage:
     -- In premium residences, SBOO discounts are equal to 25%. For
-    -- standard category the discount is of 10%.
-    self.label = 'SBOOO'and self.rent.rentedBedrooms.residence.category=Category::premium implies self.percentage=25
-    or 
-    self.label = 'SBOOO'and self.rent.rentedBedrooms.residence.category=Category::standard implies self.percentage=10
+    -- standard category the discount is of 10%. 
+    self.label = 'SBOO' implies self.rent.rentedBedrooms.residence.category=Category::premium and self.percentage=25
+    or self.rent.rentedBedrooms.residence.category=Category::standard and self.percentage=10
 
 -------------------------------------------------------------------------------
---DONE                          smokingPremiumPolicy
+--DONE test-ok-ko                         smokingPremiumPolicy
 -------------------------------------------------------------------------------
 -- Smoking policy for premium residences.
 -- Not easy
@@ -581,7 +577,7 @@ context Discount inv sboooPercentage:
 context Bedroom inv smokingPremiumPolicy:
     -- In a premium residence a resident that specified that he or she
     -- is non smoker will never ever be place in a smoking room.
-    self.residence.category=Category::premium and self.isNonSmoking implies self.occupants->forAll(r | not r.isSmoker)
+    self.residence.category=Category::premium and self.occupants-> exists(isSmoker=false) implies self.isNonSmoking=true
 
 -------------------------------------------------------------------------------
 --DONE TEST-OK-KO                           smokingPrestigePolicy
@@ -618,7 +614,7 @@ context Resident inv tutorAdult:
 
 
 -------------------------------------------------------------------------------
--- DONE                            tutorInSameGroup
+-- DONE test-ok-ko                           tutorInSameGroup
 -------------------------------------------------------------------------------
 -- Tutors and tutored in one group.
 -- Medium
@@ -631,11 +627,11 @@ context Resident inv tutorInSameGroup:
 
 
 -------------------------------------------------------------------------------
--- DONE                    uniqueNumberApartForPrivateBathroom
+-- DONE test-ok-ko          uniqueNumberApartForPrivateBathroom
 -------------------------------------------------------------------------------
 -- Invariant on room numbering.
 -- Medium
 
 context Residence inv uniqueNumberApartForPrivateBathroom:
     -- All rooms have a distinct number, except private bathrooms.
-    self.rooms->notEmpty() implies self.bedrooms()->union(self.bathrooms()->reject(b|b.isOnTheLanding=true))->isUnique(number)
+    self.rooms->notEmpty() implies self.bedrooms()->union(self.bathrooms()->reject(b|b.isOnTheLanding=false))->isUnique(number)

@@ -1,1 +1,0 @@
-self.bedrooms()->notEmpty() implies (self.maxNbOfFreeUnits = (self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfDoubleBeds->sum()+self.bedrooms().nbOfSingleBeds->sum()))

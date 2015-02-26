@@ -5,3 +5,26 @@
 
 -- open -q <BASE>.soil
 -- here some mutation code
+
+!create b1: Bedroom
+!create b2: Bedroom
+!create r: Residence
+!create r1: Resident
+!create r2: Resident
+!create t1: Tenant
+!create t2: Tenant
+
+!set r1.age:=10
+!set r2.age:=20
+
+!insert (r1,r2) into IsTutoredBy
+!insert (r,b1) into ContainsRooms
+!insert (r,b2) into ContainsRooms
+!insert (b1,r1) into IsOccupiedBy
+!insert (b1,t1) into IsOccupiedBy
+!insert (b1,r2) into IsOccupiedBy
+!insert (b2,t2) into IsOccupiedBy
+!create ren1: Rent between (b1,t1)
+!create ren2: Rent between (b2,t2)
+
+check
